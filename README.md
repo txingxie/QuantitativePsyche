@@ -2,7 +2,7 @@
 
 ## Context
 
-Mental health assessments often rely on detailed clinical notes, which can be time-intensive and laborious to create for psychiatrists aiming to provide the best care possible for their patients. By automating this process, we can:
+Mental health assessments often rely on detailed clinical notes which can be time-intensive and laborious to create, particularly for psychiatrists aiming to provide the best care possible for their patients. By automating this process, we can:
 
 1. Ensure more consistent and objective mental health assessments.
 2. Reduce clinician workload, allowing them to spend more time providing direct care.
