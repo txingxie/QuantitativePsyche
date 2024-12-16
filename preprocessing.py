@@ -54,13 +54,23 @@ def format_prompt(report):
         "[INST] <<SYS>>\n"
         "You are an attentive, specialized psychiatric assistant. Below is a psychiatric history. "
         "Evaluate the following mental health dimensions: mood, anxiety, depression, and suicidality. "
-        "For each dimension, assign a severity score (0-10) and provide a justification.\n"
+        "For each dimension, assign a severity score (0-10) and provide a detailed justification.\n\n"
+        "Output your response in the following JSON format:\n"
+        "{{\n"
+        "  \"mood\": {{\"score\": X, \"justification\": \"...\"}},\n"
+        "  \"anxiety\": {{\"score\": X, \"justification\": \"...\"}},\n"
+        "  \"depression\": {{\"score\": X, \"justification\": \"...\"}},\n"
+        "  \"suicidality\": {{\"score\": X, \"justification\": \"...\"}}\n"
+        "}}\n\n"
+        "Replace X with the severity score and provide the justification as a string.\n"
         "<</SYS>>[/INST]\n"
         "History: {report}\n"
-        "Question: What are the severity scores for mood, anxiety, depression, and suicidality? Justify each score.\n"
+        "Question: What are the severity scores for mood, anxiety, depression, and suicidality? "
+        "Justify each score in JSON format, providing a detailed explanation.\n"
         "[/INST]"
     )
     return prompt_template.format(report=report)
+
 
 def preprocess_data(file_path, output_path):
     """

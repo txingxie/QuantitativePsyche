@@ -26,7 +26,7 @@ def parse_results(input_file, output_file):
     if missing_columns:
         raise KeyError(f"Missing required columns in input file: {missing_columns}")
 
-    # Optional: Clean up data (remove leading/trailing spaces)
+    # Clean up data (remove leading/trailing spaces)
     for col in required_columns:
         data[col] = data[col].astype(str).str.strip()
 

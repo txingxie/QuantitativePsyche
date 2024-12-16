@@ -15,7 +15,7 @@ def main():
         raise ValueError("CEREBRAS_API_KEY is not set in the environment variables.")
 
     # File paths
-    input_file = "admission_notes/patient_notes_1.txt"          # Raw psychiatric notes
+    input_file = "admission_notes/patient_notes_3.txt"  # Unstructured psychiatric notes
     preprocessed_file = "output/formatted_prompts.csv"  # Preprocessed prompts
     inference_output_file = "output/results.csv"  # Raw responses from the inference step
     final_output_file = "output/parsed_results.csv"  # Final parsed results

@@ -1,7 +1,17 @@
 report,prompt
-"Patient is awake, conscious, friendly and demonstrating a willingness to engage in a conversation. Disorientation of time (-1 day). Oriented to the location, situation  and personal identity. Perception, concentration and memory are intact. No evidence of formal thought disorder or abnormal thought content. Mood stable, affect appropriate to the situation and within normal fluctuations. No fears or compulsions. No abnormalities of activity. No feelings of  weariness with life or suicidal thoughts. No immediate risk to self or others.","[INST] <<SYS>>
-You are an attentive, specialized psychiatric assistant. Below is a psychiatric history. Evaluate the following mental health dimensions: mood, anxiety, depression, and suicidality. For each dimension, assign a severity score (0-10) and provide a justification.
+"Patient awake, conscious, fully oriented across all 4 dimensions, friendly, presenting himself as willing to provide information, however, mood barely explorable due to drug intoxication, displaying intermittently parathymic and inappropriate affect, laughing out loud during the conversation. Formal and content-related thought process clearly incoherent, signs  of hallucinations (looks around the room), no evidence of specific fears or compulsions. Currently clearly not displaying acute suicidal tendencies. Signs of acute danger to others. A risk of harm to both themselves and others in the context of psychotic misinterpretation of reality.","[INST] <<SYS>>
+You are an attentive, specialized psychiatric assistant. Below is a psychiatric history. Evaluate the following mental health dimensions: mood, anxiety, depression, and suicidality. For each dimension, assign a severity score (0-10) and provide a detailed justification.
+
+Output your response in the following JSON format:
+{
+  ""mood"": {""score"": X, ""justification"": ""...""},
+  ""anxiety"": {""score"": X, ""justification"": ""...""},
+  ""depression"": {""score"": X, ""justification"": ""...""},
+  ""suicidality"": {""score"": X, ""justification"": ""...""}
+}
+
+Replace X with the severity score and provide the justification as a string.
 <</SYS>>[/INST]
-History: Patient is awake, conscious, friendly and demonstrating a willingness to engage in a conversation. Disorientation of time (-1 day). Oriented to the location, situation  and personal identity. Perception, concentration and memory are intact. No evidence of formal thought disorder or abnormal thought content. Mood stable, affect appropriate to the situation and within normal fluctuations. No fears or compulsions. No abnormalities of activity. No feelings of  weariness with life or suicidal thoughts. No immediate risk to self or others.
-Question: What are the severity scores for mood, anxiety, depression, and suicidality? Justify each score.
+History: Patient awake, conscious, fully oriented across all 4 dimensions, friendly, presenting himself as willing to provide information, however, mood barely explorable due to drug intoxication, displaying intermittently parathymic and inappropriate affect, laughing out loud during the conversation. Formal and content-related thought process clearly incoherent, signs  of hallucinations (looks around the room), no evidence of specific fears or compulsions. Currently clearly not displaying acute suicidal tendencies. Signs of acute danger to others. A risk of harm to both themselves and others in the context of psychotic misinterpretation of reality.
+Question: What are the severity scores for mood, anxiety, depression, and suicidality? Justify each score in JSON format, providing a detailed explanation.
 [/INST]"

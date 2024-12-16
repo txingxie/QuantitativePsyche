@@ -2,7 +2,7 @@ import pandas as pd
 from cerebras.cloud.sdk import Cerebras
 from dotenv import load_dotenv
 import os
-import re
+import json
 
 # Load environment variables
 load_dotenv()
@@ -47,30 +47,30 @@ def send_prompt_to_cerebras(client, prompt, model="llama3.1-8b"):
 
 def parse_response(response):
     """
-    Parses the API response to extract scores and justifications for mood, anxiety, depression, and suicidality.
+    Parses the API response (JSON) to extract scores and justifications.
 
     Args:
-        response (str): The raw response from the API.
+        response (str): The raw response from the API (expected in JSON format).
 
     Returns:
         dict: A dictionary containing scores and justifications for each dimension.
     """
-    dimensions = ["mood", "anxiety", "depression", "suicidality"]
-    results = {}
-
-    for dimension in dimensions:
-        score_pattern = rf"{dimension.capitalize()}.*?Severity score - (\d+)"
-        justification_pattern = rf"{dimension.capitalize()}.*?Justification:\s*(.+?)(?:\n|$)"
-
-        score_match = re.search(score_pattern, response, re.IGNORECASE | re.DOTALL)
-        justification_match = re.search(justification_pattern, response, re.IGNORECASE | re.DOTALL)
-
-        results[dimension] = {
-            "score": int(score_match.group(1)) if score_match else None,
-            "justification": justification_match.group(1).strip() if justification_match else "Not provided",
+    try:
+        parsed_response = json.loads(response)
+        return {
+            "mood": parsed_response.get("mood", {}),
+            "anxiety": parsed_response.get("anxiety", {}),
+            "depression": parsed_response.get("depression", {}),
+            "suicidality": parsed_response.get("suicidality", {})
         }
-
-    return results
+    except json.JSONDecodeError as e:
+        print(f"Error decoding response JSON: {e}")
+        return {
+            "mood": {"score": None, "justification": "Invalid response format"},
+            "anxiety": {"score": None, "justification": "Invalid response format"},
+            "depression": {"score": None, "justification": "Invalid response format"},
+            "suicidality": {"score": None, "justification": "Invalid response format"}
+        }
 
 
 def run_inference(input_file, output_file, api_key):
