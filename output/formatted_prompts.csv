@@ -1,0 +1,7 @@
+report,prompt
+"Patient is awake, conscious, friendly and demonstrating a willingness to engage in a conversation. Disorientation of time (-1 day). Oriented to the location, situation  and personal identity. Perception, concentration and memory are intact. No evidence of formal thought disorder or abnormal thought content. Mood stable, affect appropriate to the situation and within normal fluctuations. No fears or compulsions. No abnormalities of activity. No feelings of  weariness with life or suicidal thoughts. No immediate risk to self or others.","[INST] <<SYS>>
+You are an attentive, specialized psychiatric assistant. Below is a psychiatric history. Evaluate the following mental health dimensions: mood, anxiety, depression, and suicidality. For each dimension, assign a severity score (0-10) and provide a justification.
+<</SYS>>[/INST]
+History: Patient is awake, conscious, friendly and demonstrating a willingness to engage in a conversation. Disorientation of time (-1 day). Oriented to the location, situation  and personal identity. Perception, concentration and memory are intact. No evidence of formal thought disorder or abnormal thought content. Mood stable, affect appropriate to the situation and within normal fluctuations. No fears or compulsions. No abnormalities of activity. No feelings of  weariness with life or suicidal thoughts. No immediate risk to self or others.
+Question: What are the severity scores for mood, anxiety, depression, and suicidality? Justify each score.
+[/INST]"
